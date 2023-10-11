@@ -5,6 +5,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import StackPokemon from './screens/pokemon/StackPokemon';
 import StackFavorites from './screens/favorite/StackFavorites';
 import StackGames from './screens/games/StackGames'
+import StackComparator from './screens/comparator/StackComparator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -15,6 +16,16 @@ export default function App() {
         <Tab.Navigator
           initialRouteName="pokemon"
           shifting={true}>
+<Tab.Screen
+  name="comparador"
+  component={StackComparator}
+  options={{
+    tabBarLabel: 'Comparador',
+    tabBarIcon: () => (
+      <MaterialCommunityIcons name="compare" size={26} />
+    ),
+  }}
+/>
           <Tab.Screen
             name="favorites"
             component={StackFavorites}
@@ -42,8 +53,8 @@ export default function App() {
               tabBarLabel: 'Games',
               tabBarIcon: () => (
                 <MaterialCommunityIcons name="gamepad-variant-outline" size={26} />
-              ),
-            }}
+                ),
+              }}
           />
         </Tab.Navigator>
       </NavigationContainer>
